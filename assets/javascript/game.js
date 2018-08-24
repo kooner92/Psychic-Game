@@ -1,46 +1,66 @@
         
-// creat an array that computer can choose from
 
-    var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
-        'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    
- // create variables to count score
+var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-    var wins = 0;
-    var losses = 0;
-    var guesses = 9;
-    var letters = [];
-
-// Create variables that refer to HTML code.
-
-    var winsText = document.getElementById("wins");
-    var lossesText = document.getElementById("losses");
-    var guessesText = document.getElementById("guesses");   
-    var qlettersText = document.getElementById("letters");
-    var qUserinputText = document.getElementById("userInput");       
-    
-// determine if user pressed a key and find out which one
-    var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-    console.log(computerChoice);
+//  set variables for score
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
+var guessesSoFar = [];
 
 
-    document.onkeyup = function(event) {
+// computer chooeses random letter
+var randomLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-        var userInput = event.key;
-        console.log(event.key);
+// create functions to count guesses left and display guesses so far
 
-      
+function countGuessesLeft() {
+	document.querySelector("#guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
+}
 
-        if (userInput === computerChoice) {
-            wins++;
-        }
-        else {
-            guesses--;
-        }
-        if (guesses = 0) {
-            losses++;
-        }
+function faruserIn() {
+	document.querySelector("#soFar").innerHTML = "Your Guesses so far: " + guessesSoFar.join(' ');
+}
+
+// create restart variable and set scores to default amounts
+
+var restart = function() {
+    guessesLeft = 9;
+    guessesSoFar = [];
+}
+
+// create function with checks
+// runs after key press
+
+document.onkeyup = function(event) {
+	guessesLeft--;
+
+	var userInput = String.fromCharCode(event.keyCode).toLowerCase();
+
+// push user key into the guesses so far and update
+
+	guessesSoFar.push(userInput);
+	countGuessesLeft();
+	faruserIn();
+
+	if (userInput === randomLetter){
+		wins++;
+		document.querySelector("#wins").innerHTML = "Wins: " + wins;
+		restart();
+	} 
+	else if (guessesLeft === 0) {
+		losses++;
+		document.querySelector("#lose").innerHTML = "Loses: " + losses;
+        restart();
     }
+    
+// reset game when user wins or losses
+// ????
+
+};
+
+
+    
 
 
   

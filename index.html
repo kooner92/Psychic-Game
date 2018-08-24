@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="assets/javascript/game.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" media="screen">
     <link rel="stylesheet" href="assets/css/reset.css" media="screen">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -13,7 +12,6 @@
 </head>
 <body>
     
-
     <!-- // Computer chooses a random letter 
     // User guesses one letter a time 
     // if letter is wrong, return letter on "Your guesses so far:" line
@@ -22,23 +20,27 @@
     // if # of guesses expires, then game resets
     // keep track of wins and losses -->
 
-    <h2>The Psychic Game</h2>
-
-    <h4>Guess what letter I'm thinking of</h4>
-
-
-    <div>
-        <p id ="wins">wins:</p>
-        <p id ="losses">losses:</p>
-        <p id ="guesses">guesses left:</p>
-        <p id ="letters">Letters chosen so far:</p>
-        <p id ="computer-choice"></p>
-        <p id ="userInput"></p>
-        
+<div class="container">
+	<h2>Guess a letter, any letter?</h2>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+			<p id="wins">Wins:</p>
+			<p id="lose">Losses:</p>
+			<p id="guessesLeft">Guesses Left:</p>
+			<p id="soFar">Your Guesses so far:</p>
+		</div>
+		<div class="col-md-4">
+        </div>
     </div>
-    
-    
-    
-    
+   <div class="row">
+        <img src="https://i.ytimg.com/vi/VQDTOWEkzFQ/maxresdefault.jpg" alt="guessing game">
+   </div> 
+</div>
+
+<script src="assets/javascript/game.js"></script>
+
 </body>
 </html>
+
